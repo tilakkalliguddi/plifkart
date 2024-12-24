@@ -1,0 +1,42 @@
+<nav class="w-full top-0 z-50 flex items-center justify-between p-4 bg-white shadow-md fixed">
+  <!-- Left Section: Hamburger & Logo -->
+  <div class="flex items-center space-x-4">
+    <!-- Hamburger Menu (visible in mobile view only) -->
+    <button mat-icon-button class="lg:hidden" aria-label="Menu icon button">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- Logo -->
+    <img src="logo.svg" alt="logo" class="h-8 w-auto cursor-pointer m-auto" (click)="navigateToHome()" />
+  </div>
+
+  <!-- Center Section: Search Bar (hidden in mobile view) -->
+   <div class="hidden lg:block mx-4 rounded-lg h-12 w-full max-w-lg ">
+  <mat-form-field class="w-[30rem] h-12 mt-2">
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput type="text" placeholder="Search for Products, Brands and More"
+      class="bg-transparent bg-[#f0f5ff]" />
+  </mat-form-field>
+</div>
+  <!-- Right Section: Cart and Other Actions -->
+  <div class="flex items-center space-x-4">
+    <!-- Cart (visible in all views) -->
+    <button mat-button class="flex items-center space-x-2 hover:text-blue-600 text-sm" (click)="RouteToCart()">
+      <mat-icon aria-hidden="false" matBadge="{{ cartCount() }}">shopping_cart</mat-icon>
+    </button>
+
+    <!-- Actions (hidden in mobile view) -->
+    <div class="hidden lg:flex items-center space-x-4">
+      <a mat-button class="hover:text-blue-600 flex items-center space-x-2 text-sm">
+        <mat-icon>person</mat-icon>
+        <span>Login</span>
+      </a>
+      <button mat-button class="flex items-center space-x-2 hover:text-blue-600 text-sm" (click)="navigateToOrders()">
+        <mat-icon>storefront</mat-icon>
+        <span>My Orders</span>
+      </button>
+      <button mat-icon-button class="hover:text-blue-600" aria-label="More options">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<app-carousel></app-carousel>
+<div class="relative ">
+    @for(category of categories; track category.heading){<div class="flex border">
+        <app-product-list [products]="getProductsForCategory(category.heading)" [categoryHeading]="category.heading"
+            [categoryImage]="category.image">
+        </app-product-list>
+    </div>}
+    <div class="absolute right-8 top-4 h-80 z-10 hidden">
+        <img src="assets/airalaska.png" alt="" class="w-full h-full rounded-lg shadow-md">
+    </div>
+</div>

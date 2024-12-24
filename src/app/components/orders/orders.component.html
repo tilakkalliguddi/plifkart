@@ -1,0 +1,19 @@
+<div class="mt-20">
+    <mat-card appearance="outlined" class=" mx-4 text-3xl">
+        <mat-card-content class="bg-white">My Orders</mat-card-content>
+    </mat-card>
+    @if(orders.length === 0){<div>No orders placed yet.</div>}
+    <div class="">
+        @for(order of orders; track order){
+        <div class="bg-white p-4 lg:p-8 m-4 rounded-2xl">
+            <div class="text-[#374151] text-sm">
+            @for(item of order.items; track item){                
+            <p class="grid grid-cols-2 lg:grid-cols-3 text-sm lg:text-base"> <span class="font-medium"> Product  </span> <span>: {{ item.title }} (qty : {{ item.quantity }})</span></p>
+            <p class="grid grid-cols-2 lg:grid-cols-3 text-sm lg:text-base"> <span class="font-medium"> Unit Price  </span> <span>: ₹ {{item.discountPrice }}</span></p>}
+            <p class="grid grid-cols-2 lg:grid-cols-3 text-sm lg:text-base"> <span class="font-medium"> Order ID  </span> <span>: {{ order.id }}</span></p>
+            <p class="grid grid-cols-2 lg:grid-cols-3 text-sm lg:text-base"> <span class="font-medium"> Date  </span> <span>: {{ order.date | date: 'medium' }}</span></p>
+            <p class="grid grid-cols-2 lg:grid-cols-3 text-sm lg:text-base"> <span class="font-medium"> Total  </span> <span>: ₹ {{ calculateTotal(order.items) }}</span></p>
+        </div>
+    </div>}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <p mat-dialog-title class="text-center text-lg font-medium">Confirm Order!</p>
+        <mat-dialog-content>{{ data.message }}</mat-dialog-content>
+        <mat-dialog-actions class="justify-between">
+            <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+            <button mat-raised-button color="warn" (click)="onConfirm()">
+                Confirm
+            </button>
+        </mat-dialog-actions>
+    </mat-card-content>
+</mat-card>

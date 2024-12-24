@@ -1,0 +1,28 @@
+<div class="lg:flex border py-4 px-8">
+    <div class="w-56 flex flex-col items-center text-center bg-white bored">
+        <span class="text-2xl mb-2 lg:mt-28  text-[#212121]">{{ categoryHeading }}</span>
+        <a mat-raised-button color="primary" class="mb-4 p-2 text-white text-sm bg-blue-600 ">VIEW ALL</a>
+        <img [src]="categoryImage" alt="{{ categoryHeading }}" class="category-image">
+    </div>
+    <div class="w-auto">
+        <div class="lg:flex overflow-x-auto space-x-4 bg-white h-full ">
+            @for(product of products; track product){<div class="min-w-[18%] text-center mt-4 grid">
+                <img [src]="product.image" alt="{{ product.title }}" class="w-full h-32 object-contain hover:scale-110">
+                <span class="mt-2 text-sm font-semibold">{{ product.title }}</span>
+                <span class="text-green-600 font-bold">{{ product.discountPrice }}</span>
+                <span class="text-gray-500 line-through">{{ product.price }}</span>
+                <span class="text-xs text-gray-600">{{ product.brand }}</span>
+                @if(!isProductInCart(product.id)){<button mat-raised-button color="primary"
+                    class="cursor-pointer rounded-2xl text-white bg-[#2874F0] my-4 mx-auto w-[70%]"
+                    (click)="addToCart(product)">
+                    Add to Cart
+                </button>}@else{
+                <button mat-raised-button color="warn"
+                    class="cursor-pointer rounded-2xl  my-4 mx-auto w-[70%]"
+                    (click)="RouteToCart()">
+                    Go to Cart
+                </button>}
+            </div>}
+        </div>
+    </div>
+</div>

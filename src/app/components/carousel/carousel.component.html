@@ -1,0 +1,13 @@
+<div class="carousel-container md:mt-4 mt-20 lg:mx-8">
+  <button mat-icon-button (click)="previousSlide()" class="absolute left-0 z-10 bg-white ">
+    <mat-icon class="align-middle my-6">chevron_left</mat-icon>
+  </button>
+
+  <mat-card class="carousel-card">
+    <img mat-card-image [src]="slides[currentIndex].image" alt="slides[currentIndex]">
+  </mat-card>
+
+  <button mat-icon-button (click)="nextSlide()" class="absolute right-0 z-10 bg-white">
+    <mat-icon class="align-middle my-6">chevron_right</mat-icon>
+  </button>
+</div>
